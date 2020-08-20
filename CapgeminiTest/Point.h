@@ -1,12 +1,18 @@
-#pragma once
+﻿#pragma once
 #include <string>
 
-class Point					//	Container for storing points on a plane
+/// <summary>
+/// Контейнер для хранения точки на плоскости
+/// </summary>
+class Point
 {
 public:
 	double x;
 	double y;
-
+	/// <summary>
+	/// Генерирует информацию о точке
+	/// </summary>
+	/// <returns>Строка вида (x,y)</returns>
 	std::string toStr()  
 	{
 		std::string X = std::to_string(x);
@@ -14,6 +20,11 @@ public:
 		std::string res = "(" + X + ", " + Y + ")";
 		return res;
 	};
-	Point() { x = 0; y = 0; }
-	Point(double X, double Y) { x = X; y = Y; } //	Constructor
+	/// <summary>
+	/// Сконструировать точку с заданными координатами
+	/// </summary>
+	/// <param name="X">Координата на оси абцисс</param>
+	/// <param name="Y">Координата на оси ординат</param>
+	Point(double X = 0, double Y = 0) 
+	{ x = X; y = Y; }
 }; 

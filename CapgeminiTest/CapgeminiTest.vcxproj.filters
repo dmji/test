@@ -13,32 +13,35 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Childs">
+      <UniqueIdentifier>{5f61fafd-6eb7-4808-80ed-ccb8f7084178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Childs">
+      <UniqueIdentifier>{7d9b87f8-886b-4858-b3bd-b814c4972414}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CapgeminiTest.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Parabola.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Ellipse.cpp">
+    <ClCompile Include="Curve.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Circle.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Childs</Filter>
     </ClCompile>
-    <ClCompile Include="Curve.cpp">
+    <ClCompile Include="Ellipse.cpp">
+      <Filter>Исходные файлы\Childs</Filter>
+    </ClCompile>
+    <ClCompile Include="Parabola.cpp">
+      <Filter>Исходные файлы\Childs</Filter>
+    </ClCompile>
+    <ClCompile Include="debugsave.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Point.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Parabola.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Ellipse.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="CapgeminiTest.h">
@@ -48,7 +51,13 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Circle.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Childs</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipse.h">
+      <Filter>Файлы заголовков\Childs</Filter>
+    </ClInclude>
+    <ClInclude Include="Parabola.h">
+      <Filter>Файлы заголовков\Childs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

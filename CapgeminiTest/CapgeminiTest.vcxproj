@@ -142,6 +142,7 @@
     <ClCompile Include="CapgeminiTest.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Curve.cpp" />
+    <ClCompile Include="debugsave.cpp" />
     <ClCompile Include="Parabola.cpp" />
     <ClCompile Include="Ellipse.cpp" />
   </ItemGroup>

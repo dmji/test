@@ -1,10 +1,5 @@
 ﻿#include "Circle.h"
 
-double Circle::df(double t)
-{
-	return (sqrt(par[0] / par[4]) * cos(t)) / ( sqrt(par[0] / par[5]) * (-sin(t)));
-}
-
 Circle::Circle(double r)
 {
 	par[5] = 1;
@@ -12,7 +7,11 @@ Circle::Circle(double r)
 	par[0] = r * r;
 }
 
-Circle* buldCircle(Point** dotList)
+Circle* buildCircle(Point** dotList)
 {
-	return nullptr;
+	double temp = dotList[0]->x * dotList[0]->x + dotList[0]->y * dotList[0]->y;
+	for(int i = 1; i < 3;i++)
+		if(dotList[i]->x * dotList[i]->x + dotList[i]->y * dotList[i]->y != temp)
+			return nullptr;
+	return new Circle(sqrt(temp));
 }

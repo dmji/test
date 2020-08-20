@@ -1,10 +1,10 @@
 #include "Curve.h"
 
-double* doKof(Point** dotList, int size)
+double* doKof(Point** dotList, double func(double t), int size)
 {
 	double* result = new double[size];
 	for (int i = 0; i < size; i++)
-		result[i] = dotList[i]->y;
+		result[i] = func(dotList[i]->y);
 	return result;
 };
 
