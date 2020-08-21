@@ -44,7 +44,6 @@ int main()
 	curveInfo(par, t, "parabola");
 
 
-
 	t = acos(0.0);
 
 	dotList[0] = new Point(-4, 0);
@@ -90,4 +89,12 @@ int main()
 	cout << "\nOne more dots set: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
 	cir = buildCircle(dotList);
 	curveInfo(cir, t, "circle");
+
+	delete[] cir;
+	delete[] par;
+	delete[] ell;
+	delete[] dotList[0];
+	delete[] dotList[1];
+	delete[] dotList[2];
+	delete[] dotList;
 }

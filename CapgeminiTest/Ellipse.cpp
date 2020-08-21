@@ -31,8 +31,12 @@ Ellipse* buildEllipse(Point** dotList)
 {
 	double* kof = rref(doMatr(dotList, basisEllipse,3,3), doKof(dotList, yEllipse), 3,3);
 	if (kof == nullptr)
+	{
+		delete[] kof;
 		return nullptr;
+	}
 	Ellipse* result = new Ellipse(1, 1/kof[0], sqrt(kof[1]));
+	delete[] kof;
 	return result;
 }
 
