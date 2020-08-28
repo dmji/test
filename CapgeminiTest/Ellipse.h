@@ -38,7 +38,7 @@ public:
 /// </summary>
 /// <param name="dotList">Список точек</param>
 /// <returns>Экземляр класса эллипса если возможно построить и nullptr в обратном случае</returns>
-Ellipse* buildEllipse(Point** dotList);
+Ellipse* buildEllipse(Point* dotList);
 /// <summary>
 /// Вспомогательная функция для создания параметра в метода Гаусса
 /// </summary>

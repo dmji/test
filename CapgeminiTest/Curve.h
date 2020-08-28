@@ -59,7 +59,7 @@ public:
 /// <param name="sizeX">Количество базисных элементов</param>
 /// <param name="sizeY">Кличество точек</param>
 /// <returns>Матрица</returns>
-double** doMatr(Point** dotList,double basis(double t, int bin), int sizeX = 3, int sizeY = 3);
+double** doMatr(Point* dotList,double basis(double t, int bin), int sizeX = 3, int sizeY = 3);
 
 /// <summary>
 /// Вспомогательная функция для построения функции по точкам, реализует метода Гаусса для решения СЛАУ
@@ -78,4 +78,4 @@ double* rref(double** matr, double* kof, int sizeX = 3, int sizeY = 3);
 /// <param name="func">Функция, возвращающее значение y(или y^2) в функции</param>
 /// <param name="size">Кличество точек</param>
 /// <returns>Коэффиценты для построения кривой</returns>
-double* doKof(Point** dotList, double func(double t), int size = 3);
+double* doKof(Point* dotList, double func(double t), int size = 3);

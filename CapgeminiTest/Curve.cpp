@@ -1,35 +1,26 @@
 #include "Curve.h"
-#include <iostream>
 
-double* doKof(Point** dotList, double func(double t), int size)
+double* doKof(Point* dotList, double func(double t), int size)
 {
 	double* result = new double[size];
 	for (int i = 0; i < size; i++)
-		result[i] = func(dotList[i]->y);
+		result[i] = func(dotList[i].y);
 	return result;
 };
 
-double** doMatr(Point** dotList, double basis(double t, int bin) , int sizeX, int sizeY)
+double** doMatr(Point* dotList, double basis(double t, int bin) , int sizeX, int sizeY)
 {
 	double** result = new double* [sizeY];
 	for (int i = 0; i < sizeY; i++)
 		result[i] = new double[sizeX];
 	for (int i = 0; i < sizeY; i++)
 		for (int j = 0; j < sizeX; j++)
-			result[i][j] = basis(dotList[i]->x, j);
+			result[i][j] = basis(dotList[i].x, j);
 	return result;
 };
 
 double* rref(double** matr, double* kof, int sizeX, int sizeY)
 {
-	/*
-	for (int i = 0; i < sizeX; i++)
-	{
-		for (int j = 0; j < sizeY; j++)
-			std::cout << matr[i][j] << ' ';
-		std::cout << kof[i] << ' ' << "\n";
-	}
-	*/
 	for (int step = 0; step < sizeY; step++)
 	{
 		int temp_ind = -1;
@@ -40,8 +31,13 @@ double* rref(double** matr, double* kof, int sizeX, int sizeY)
 				break;
 			}
 		if (temp_ind == -1 && kof[step] != 0)
+		{
+			for (int i = 0; i < sizeY; i++)
+				delete[] matr[i];
+			delete[] matr;
+			delete[] kof;
 			return nullptr;
-
+		}
 		double temp = matr[step][temp_ind];
 		for (int j = 0; j < sizeX; j++)
 			matr[step][j] = matr[step][j] / temp;
@@ -62,13 +58,9 @@ double* rref(double** matr, double* kof, int sizeX, int sizeY)
 		for (int j = 0; j < sizeY; j++)
 			if (matr[i][j] == 1)
 				result[j] = kof[i];
-	/*
-	for (int i = 0; i < sizeX; i++)
-	{
-		for (int j = 0; j < sizeY; j++)
-			std::cout << matr[i][j] << ' ';
-		std::cout << kof[i] << ' ' << result[i] << "\n";
-	}
-	*/
+	for (int i = 0; i < sizeY; i++)
+		delete[] matr[i];
+	delete[] matr;
+	delete[] kof;
 	return result;
 };

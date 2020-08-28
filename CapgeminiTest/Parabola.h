@@ -39,7 +39,7 @@ public:
 /// </summary>
 /// <param name="dotList">Список точек</param>
 /// <returns>Экземляр класса парабол если возможно построить и nullptr в обратном случае</returns>
-Parabola* buildParabola(Point** dotList);
+Parabola* buildParabola(Point* dotList);
 /// <summary>
 /// Вспомогательная функция для создания параметра в метода Гаусса
 /// </summary>

@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/CadexTest/CadexTest.vcxproj.filters
+/CadexTest/CadexTest.vcxproj
+/CadexTest/CadexTest.sln
+/CadexTest/CadexTest.cpp

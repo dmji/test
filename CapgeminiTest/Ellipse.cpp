@@ -28,16 +28,12 @@ bool Ellipse::isClosed()
 	return true;
 }
 
-Ellipse * buildEllipse(Point** dotList)
+Ellipse * buildEllipse(Point* dotList)
 {
+	Ellipse* result = nullptr;
 	double* kof = rref(doMatr(dotList, basisEllipse, 3, 3), doKof(dotList, yEllipse), 3,3);
-	if (kof == nullptr)
-	{
-		delete[] kof;
-		return NULL;
-	}
-	double a = kof[0], b = kof[1], c = kof[2];
-	Ellipse * result =  new Ellipse(1, 1/sqrt(kof[0]), sqrt(kof[1]));
+	if (kof != nullptr)
+		result = new Ellipse(1, 1 / sqrt(kof[0]), sqrt(kof[1]));
 	delete[] kof;
 	return result;
 }
