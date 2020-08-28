@@ -1,5 +1,6 @@
 ﻿#include "Ellipse.h"
 
+
 double Ellipse::df(double t)
 {
 	return (sqrt(par[0] / par[4]) * cos(t)) / ( sqrt(par[0] / par[5]) * (-sin(t)));
@@ -19,7 +20,7 @@ Point Ellipse::onCurvePoint(double t)
 
 std::string Ellipse::toStrParametric()
 {
-	return std::string("(" + std::to_string(sqrt(par[0] / par[5])) + " * cos(t), " + std::to_string(sqrt(par[0] / par[4])) + " * sin(t) )");
+	return std::string("(" + std::to_string(sqrt(par[0] / par[5])) + " * cos(t), " + std::to_string(sqrt(par[0] / par[4])) + " * sin(t) ) a=" + std::to_string(1/sqrt(par[5])) + " b=" + std::to_string(1/sqrt(par[4])) + " R=" + std::to_string(par[0]));
 }
 
 bool Ellipse::isClosed()
@@ -27,15 +28,16 @@ bool Ellipse::isClosed()
 	return true;
 }
 
-Ellipse* buildEllipse(Point** dotList)
+Ellipse * buildEllipse(Point** dotList)
 {
-	double* kof = rref(doMatr(dotList, basisEllipse,3,3), doKof(dotList, yEllipse), 3,3);
+	double* kof = rref(doMatr(dotList, basisEllipse, 3, 3), doKof(dotList, yEllipse), 3,3);
 	if (kof == nullptr)
 	{
 		delete[] kof;
-		return nullptr;
+		return NULL;
 	}
-	Ellipse* result = new Ellipse(1, 1/kof[0], sqrt(kof[1]));
+	double a = kof[0], b = kof[1], c = kof[2];
+	Ellipse * result =  new Ellipse(1, 1/sqrt(kof[0]), sqrt(kof[1]));
 	delete[] kof;
 	return result;
 }
@@ -45,7 +47,7 @@ double basisEllipse(double t, int bin)
 	switch (bin)
 	{
 	case 0:
-		return t * t;
+		return - t * t;
 		break;
 	case 1:
 		return 1;

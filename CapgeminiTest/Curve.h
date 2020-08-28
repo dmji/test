@@ -44,7 +44,11 @@ public:
 		else if (tan == -INFINITY)
 			return Point(0, -1);
 
-		return Point(1 / (1 + tan * tan), tan / (1 + tan * tan));
+		Point res = Point(1 / (1 + tan * tan), tan / (1 + tan * tan));
+		double norm = sqrt(res.x * res.x + res.y * res.y);
+		res.x = res.x / norm;
+		res.y = res.y / norm;
+		return res;
 	};
 };
 /// <summary>

@@ -17,16 +17,24 @@ void curveInfo(Curve* obj, double t,string inf = "object")
 		cout << "--- beg info ---\n Incorrect dots to build " << inf << "\n--- end info ---\n";
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	double t = 0;
+	double tPi = 2*acos(0.0);
+
+	if (argc > 1)
+		t = atoi(argv[1]);
+	if (argc > 2)
+		tPi *=  atof(argv[2]);
+
+
 	Point** dotList = new Point * [3];
-	int t = 3;
 
 	dotList[0] = new Point(-1, 1); 
 	dotList[1] = new Point(0, 0);
 	dotList[2] = new Point(2, 4);
 	cout << "### Parabola ###\nCorrect dots: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() <<", " << dotList[2]->toStr() << "\n";
-	Parabola* par = buildParabola(dotList);;
+	Parabola *par = buildParabola(dotList);;
 	curveInfo(par, t, "parabola");
 	
 	dotList[0] = new Point(-1, 1);
@@ -44,28 +52,27 @@ int main()
 	curveInfo(par, t, "parabola");
 
 
-	t = acos(0.0);
 
 	dotList[0] = new Point(-4, 0);
 	dotList[1] = new Point(0, 1);
 	dotList[2] = new Point(4, 0);
 	cout << "\n\n\n### Ellipse ###\nCorrect dots: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
-	Ellipse* ell = buildEllipse(dotList);
-	curveInfo(ell, t, "ellipse");
+	Ellipse *ell = buildEllipse(dotList);
+	curveInfo(ell, tPi, "ellipse");
 
 	dotList[0] = new Point(-1, 1);
 	dotList[1] = new Point(0, 0);
 	dotList[2] = new Point(0, 1);
 	cout << "\nIncrrect dots: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
 	ell = buildEllipse(dotList);
-	curveInfo(ell, t, "ellipse");
+	curveInfo(ell, tPi, "ellipse");
 
 	dotList[0] = new Point(1, 0);
 	dotList[1] = new Point(0, -7);
 	dotList[2] = new Point(0, 7);
 	cout << "\nOne more dots set: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
 	ell = buildEllipse(dotList);
-	curveInfo(ell, t, "ellipse");
+	curveInfo(ell, tPi, "ellipse");
 
 
 
@@ -73,26 +80,26 @@ int main()
 	dotList[1] = new Point(0, 4);
 	dotList[2] = new Point(4, 0);
 	cout << "\n\n\n### Circle ###\nCorrect dots: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
-	Circle* cir = buildCircle(dotList);
-	curveInfo(cir, t, "circle");
+	Circle *cir = buildCircle(dotList);
+	curveInfo(cir, tPi, "circle");
 
 	dotList[0] = new Point(-1, 1);
 	dotList[1] = new Point(0, 0);
 	dotList[2] = new Point(0, 1);
 	cout << "\nIncrrect dots: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
 	cir = buildCircle(dotList);
-	curveInfo(cir, t, "circle");
+	curveInfo(cir, tPi, "circle");
 
 	dotList[0] = new Point(7, 0);
 	dotList[1] = new Point(0, -7);
 	dotList[2] = new Point(0, 7);
 	cout << "\nOne more dots set: " << dotList[0]->toStr() << ", " << dotList[1]->toStr() << ", " << dotList[2]->toStr() << "\n";
 	cir = buildCircle(dotList);
-	curveInfo(cir, t, "circle");
+	curveInfo(cir, tPi, "circle");
 
-	delete[] cir;
-	delete[] par;
 	delete[] ell;
+	delete[] par;
+	delete[] cir;
 	delete[] dotList[0];
 	delete[] dotList[1];
 	delete[] dotList[2];

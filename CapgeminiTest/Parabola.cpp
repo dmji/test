@@ -38,15 +38,15 @@ bool Parabola::isClosed()
 	return false;
 }
 
-Parabola* buildParabola(Point** dotList)
+Parabola * buildParabola(Point** dotList)
 {
 	double * kof = rref(doMatr(dotList, basisParabola), doKof(dotList, yParabola));
 	if (kof == nullptr)
 	{
 		delete[] kof;
-		return nullptr;
+		return NULL;
 	}
-	Parabola* result = new Parabola(kof[0], kof[1], kof[2]);
+	Parabola * result = new  Parabola(kof[0], kof[1], kof[2]);
 	delete[] kof;
 	return result;
 }

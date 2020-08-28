@@ -17,4 +17,4 @@ public:
 /// </summary>
 /// <param name="dotList">Список точек</param>
 /// <returns>Экземляр класса окружностей если возможно построить и nullptr в обратном случае</returns>
-Circle* buildCircle(Point** dotList);
+Circle *buildCircle(Point** dotList);
