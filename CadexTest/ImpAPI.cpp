@@ -74,8 +74,6 @@ std::string ImpAPI::detachFigure(int type)
 				if (typeid(*a.get()) == typeid(Helix))
 					vect[selectedVect].push_back(move(make_unique<Helix>(a.get()->getPar()[0], a.get()->getPar()[1])));
 				break;
-			default:
-				break;
 			}
 	}
 	else
