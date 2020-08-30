@@ -13,6 +13,6 @@ public:
 		if (stepZ < 0) step = 0; 
 	};
 	virtual Point onCurveGradient(double t) { return dynamic_cast<Circle*>(this)->onCurveLocation(t) + Point(0,0, t * step / (2*atan(1) * 4)); };
-	virtual Point onCurveLocation(double t) { return Point(radX * cos(t), radX * sin(t), 0); };
-	virtual std::string toStrParametric() { return std::string("(" + std::to_string(radX) + " * cos(t), " + std::to_string(radX) + " * sin(t), 0)"); };
+	virtual Point onCurveLocation(double t) { return Point(radX * cos(t), radX * sin(t), 1); };
+	virtual std::string toStrParametric() { return std::string("(" + std::to_string(radX) + " * cos(t), " + std::to_string(radX) + " * sin(t), t * step / (2*Pi) )"); };
 };
