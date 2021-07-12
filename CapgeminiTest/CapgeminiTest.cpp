@@ -4,7 +4,6 @@ using namespace std;
 
 void curveInfo(Curve* obj, double t,string inf = "object")
 {
-	
 	if (obj != nullptr)
 	{
 		cout << "--- beg info ---\n";
