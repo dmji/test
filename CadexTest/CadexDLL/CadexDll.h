@@ -12,6 +12,10 @@ namespace gm
 {
 static double s_Pi = 3.14159265359;
 
+/// <summary></summary>
+/// <param name="nCount">Count of figure</param>
+/// <param name="randomMax"></param>
+/// <returns></returns>
 extern "C++" GEOMETRYLIBRARY_API void fillRandomize(
 	const unsigned int nCount = 3, const unsigned int randomMax = 100);
 
