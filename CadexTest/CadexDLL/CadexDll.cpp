@@ -18,6 +18,9 @@ void fillRandomize(const unsigned int nCountFigure, const unsigned int randomMax
 	srand(time(NULL));
 	while(s_aFigureVectors.size() <= EFigureType::eCount)
 		s_aFigureVectors.push_back(vector<shared_ptr<CFigure>>());
+	for(int i = 0; i < s_aFigureVectors.size(); i++)
+		s_aFigureVectors[i].clear();
+
 	for(int i = 0; i < EFigureType::eCount; i++)
 	{
 		if(!s_aFigureVectors[i].empty())
@@ -120,6 +123,7 @@ std::string collectFigureByType(EFigureType cType)
 		return "Main vector is empty";
 
 	auto& aFigureTyped = s_aFigureVectors[cType];
+	aFigureTyped.clear();
 	for(auto& a : aFigure)
 	{
 		if(a->getType() == cType)
@@ -130,7 +134,6 @@ std::string collectFigureByType(EFigureType cType)
 
 std::string sumRadCircles()
 {
-
 	double result = 0;
 	for(auto& a : s_aFigureVectors[s_selectedType])
 	{
